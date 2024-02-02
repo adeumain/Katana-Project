@@ -7,7 +7,7 @@ enum CardType { Armes, Permanantes, Action };
 #ifndef DE_H_INCLUDED
 #define DE_H_INCLUDED
 
-class Card
+class Cardorig
 {
     public:
         CardType type;
@@ -16,11 +16,25 @@ class Card
         int portee;
         int NbCartes;
     
-        Card(CardType cardType, const std::string& nomcarte, int Portee, int Degats, int NbCartes)
+        Cardorig(CardType cardType, const std::string& nomcarte, int Portee, int Degats, int NbCartes)
             : type(cardType), name(nomcarte), portee(Portee), attack(Degats),  NbCartes(NbCartes) {}
 };
 
-extern std::vector<Card> allCards;
+class Cardtot
+{
+public:
+    CardType type;
+    std::string name;
+    int attack;
+    int portee;
+
+    Cardtot(CardType cardType, const std::string& nomcarte, int Portee, int Degats)
+        : type(cardType), name(nomcarte), portee(Portee), attack(Degats) {}
+};
+
+extern std::vector<Cardtot> totCards;
+
+extern std::vector<Cardorig> allCards;
 
 void cartes();
 
