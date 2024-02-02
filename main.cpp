@@ -81,11 +81,13 @@ int main() {
 
 for (int i = 1; i <= nombreJoueurs; i++){
     getch();
+    cout << "Le prochain role s'affiche dans 3 secondes !  ";
+    sleep(3);
     system("cls");
     cout << "Joueur"<< i << " obtient le role " << i << endl;
+    cout << "Cliquez sur une touche pour afficher le prochain role !  ";
     sleep(3);
     Joueur* joueur = new Joueur();
-
 }
 
 }
