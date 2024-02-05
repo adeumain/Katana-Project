@@ -14,8 +14,8 @@ int main() {
         return 1;
     }
 
-    Joueur test;
-    test.mainjoueurs(numPlayers);
+    Joueur start;
+    start.mainjoueurs(numPlayers);
 
     for (const Joueur& main : Main) {
         std::cout << "Nom Joueur: " << main.name << std::endl;
