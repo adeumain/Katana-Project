@@ -1,26 +1,20 @@
 #include <iostream>
-#include <conio.h>
 #include "Joueur.h"
+#include <conio.h>
 #include <unistd.h>
 
 using namespace std;
 
 
 int main() {
+    cartes();
+    srand(static_cast<unsigned>(time(nullptr)));
+
     int nombreJoueurs;
     cout << R"(
 
                             /|
                           /'||
-                         |  ||
-                         |  ||
-                         |  ||
-                         |  ||
-                         |  ||
-                         |  ||
-                         |  ||
-                         |  ||
-                         |  ||
                          |  ||
                          |  ||
                          |  ||
@@ -79,13 +73,20 @@ int main() {
             cout << "C'est l'heure de l'attribution des roles, ne regardez que votre role ! ";
     }
 
-for (int i = 1; i <= nombreJoueurs; i++){
-    getch();
-    system("cls");
-    cout << "Joueur"<< i << " obtient le role " << i << endl;
-    sleep(3);
-    Joueur* joueur = new Joueur();
+    Joueur test;
+    test.mainjoueurs(nombreJoueurs);
 
-}
+    for (const Joueur& main : Main) {
+        getch();
+        cout << "Le prochain role s'affiche dans 3 secondes !  ";
+        sleep(3);
+        system("cls");
+        cout << "Nom Joueur: " << main.name << std::endl;
+        cout << "Role: " << main.role << std::endl;
+        cout << "Personnage: " << main.character << std::endl;
+        cout << "Cliquez sur une touche pour afficher le prochain role !  ";
+        sleep(3);
+    };
+    return 0;
 
 }
