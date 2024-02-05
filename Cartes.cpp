@@ -4,6 +4,8 @@
 
 std::vector<Cardorig> allCards;
 std::vector<Cardtot> totCards;
+Cardrolles roles;
+Cardchar characters;
 
 void cartes() {
 	// Cartes Format cardType, nomcarte, Portee, Degats, NbCartes
@@ -97,4 +99,8 @@ void cartes() {
 			totCards.push_back(card);
 		};
 	};
+
+	roles.roles = { "Role1", "Role2", "Role3" };
+
+	characters.characters = { "Character1", "Character2", "Character3" };
 }
