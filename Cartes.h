@@ -41,7 +41,11 @@ class Cardrolles
 class Cardchar
 {
     public:
-        std::vector<std::string> characters;
+        std::string name;
+        int hp;
+
+        Cardchar(const std::string& nomcarte, int vie)
+            : name(nomcarte), hp(vie) {}
 };
 
 extern std::vector<Cardtot> totCards;
@@ -50,7 +54,7 @@ extern std::vector<Cardorig> allCards;
 
 extern Cardrolles roles;
 
-extern Cardchar characters;
+extern std::vector<Cardchar> charCards;
 
 void cartes();
 

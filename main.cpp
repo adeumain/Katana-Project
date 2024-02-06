@@ -15,11 +15,14 @@ int main() {
     UserInterface messageBienvenue;
     messageBienvenue.messageBienvenu();
 
-    Joueur test;
-    test.mainjoueurs(nombreJoueurs);
+    Joueur initjoueurs;
+    initjoueurs.mainjoueurs(nombreJoueurs);
 
     UserInterface affichageRoles;
     affichageRoles.affichageRoles();
+
+    Joueur distrib;
+    distrib.distribcartes();
 
     return 0;
 

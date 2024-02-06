@@ -32,6 +32,7 @@ void UserInterface::affichageRoles() {
         cout << "Role: " << main.role << std::endl;
         cout << "Personnage: " << main.character << std::endl;
         cout << "Point Honeur: " << main.honeur << std::endl;
+        cout << "HP: " << main.vie << std::endl;
         cout << "Cliquez sur une touche pour afficher le prochain role !  ";
         Sleep(3);
     }

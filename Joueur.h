@@ -15,7 +15,7 @@ class Joueur
 		std::string character;
 		int vie;
 		int honeur;
-		std::vector<std::string> main;
+		std::vector<Cardtot> main;
 		std::vector<std::string> shuffledCharacters;
 		std::vector<std::string> shuffledRoles;
 
@@ -23,18 +23,20 @@ class Joueur
 
 		Joueur();
 
-		Joueur(std::string names, std::string roles, std::string charact, int vies, int honeurs, std::vector<std::string> cardes)
+		Joueur(std::string names, std::string roles, std::string charact, int vies, int honeurs, std::vector<Cardtot> cardes)
 			: name(names), role(roles), character(charact), vie(vies), honeur(honeurs), main(cardes) {}
 
-		void mainjoueurs(int numPlayers);
+		void mainjoueurs(int nombreJoueurs);
 
-		void initializeRoles(int numPlayers);
+		void initializeRoles(int nombreJoueurs);
 
 		std::string Rndrole();
 
-		std::string Rndcharacter();
+		std::tuple<std::string, int> Rndcharacter();
 
-		int Honeurpoints(std::string role, int numPlayers);
+		int Honeurpoints(std::string role, int nombreJoueurs);
+
+		void distribcartes();
 };
 
 extern std::vector<Joueur> Main;

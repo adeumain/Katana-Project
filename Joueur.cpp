@@ -1,44 +1,48 @@
 #include "Joueur.h"
 #include <iostream>
+#include <tuple>
 #include <vector>
 #include <algorithm>
+#include <iterator>
 #include <random>
 
 std::vector<Joueur> Main;
 
-Joueur::Joueur() : shuffledCharacters(characters.characters) {}
+Joueur::Joueur() : shuffledCharacters() {
+    for (const auto& card : charCards) {
+        shuffledCharacters.push_back(card.name);
+    }
+}
 
-void Joueur::mainjoueurs(int numPlayers) {
+void Joueur::mainjoueurs(int nombreJoueurs) {
 
     std::vector<Joueur> players;
 
-    initializeRoles(numPlayers);
+    initializeRoles(nombreJoueurs);
     // Input player names
-    for (int i = 0; i < numPlayers; ++i) {
+    for (int i = 0; i < nombreJoueurs; ++i) {
         std::string playerName;
+        std::string character;
+        int hp;
+
         std::cout << "Enter the name of Player " << i + 1 << ": ";
         std::cin >> playerName;
 
         std::string role = Rndrole();
-        std::string character = Rndcharacter();
+        std::tie(character, hp) = Rndcharacter();
 
         // Create a player and add to the vector
-        players.push_back(Joueur(playerName, role, character, 0, Honeurpoints(role, numPlayers), {}));
-    }
-
-    // Distribute cards to each player's hand
-    for (Joueur& player : players) {
-
+        players.push_back(Joueur(playerName, role, character, hp, Honeurpoints(role, nombreJoueurs), {}));
     }
 
     Main.insert(Main.end(), players.begin(), players.end());
 };
 
-void Joueur::initializeRoles(int numPlayers) {
+void Joueur::initializeRoles(int nombreJoueurs) {
     shuffledRoles.clear();
 
     // Duplicate roles based on the number of players
-    for (int i = 0; i < numPlayers; ++i) {
+    for (int i = 0; i < nombreJoueurs; ++i) {
         shuffledRoles.push_back(roles.roles[i]);
     }
 
@@ -54,27 +58,36 @@ std::string Joueur::Rndrole() {
     return tmp;
 };
 
-std::string Joueur::Rndcharacter() {
+std::tuple<std::string, int> Joueur::Rndcharacter() {
 
     std::random_device rd;
     std::mt19937 g(rd());
 
     std::shuffle(shuffledCharacters.begin(), shuffledCharacters.end(), g);
 
-    std::string tmp = shuffledCharacters[0];
+    std::string name = shuffledCharacters[0];
     shuffledCharacters.erase(shuffledCharacters.begin());
-    return tmp;
+
+    int hp = 0;
+    for (const auto& card : charCards) {
+        if (card.name == name) {
+            hp = card.hp;
+            break;
+        }
+    }
+
+    return std::make_tuple(name, hp);
 };
 
-int Joueur::Honeurpoints(std::string role, int numPlayers) {
-    if (numPlayers != 3) {
+int Joueur::Honeurpoints(std::string role, int nombreJoueurs) {
+    if (nombreJoueurs != 3) {
         if (role == "shogun") {
             return 5;
         }
-        else if (numPlayers > 5) {
+        else if (nombreJoueurs > 5) {
             return 3;
         }
-        else if (numPlayers <= 5) {
+        else if (nombreJoueurs <= 5) {
             return 4;
         }
     } else {
@@ -86,3 +99,25 @@ int Joueur::Honeurpoints(std::string role, int numPlayers) {
         }
     };
 };
+
+void Joueur::distribcartes() {
+
+    // Find shogun dans le vecteur players
+    auto shogun = std::find_if(Main.begin(), Main.end(), [](const Joueur& joueur) {
+        return joueur.role == "shogun";
+        });
+
+    // Si Shogun est trouver mettre tout les joueurs apres lui en debut de liste
+    if (shogun != Main.end()) {
+        std::rotate(Main.begin(), shogun, Main.end());
+    }
+
+    // Number of cards to distribute to each player
+    std::vector<int> cardsPerPlayer = { 4, 5, 5, 6, 6, 7, 7 };
+
+    // Distribute cards to each player's hand
+    for (Joueur &joueur : Main) {
+        
+    }
+
+}

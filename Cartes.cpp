@@ -5,7 +5,7 @@
 std::vector<Cardorig> allCards;
 std::vector<Cardtot> totCards;
 Cardrolles roles;
-Cardchar characters;
+std::vector<Cardchar> charCards;
 
 void cartes() {
 	// Cartes Format cardType, nomcarte, Portee, Degats, NbCartes
@@ -102,5 +102,40 @@ void cartes() {
 
 	roles.roles = { "shogun", "samouraï", "ninjas" , "ninjas" , "ronin" , "ninjas" , "samouraïs" };
 
-	characters.characters = { "Benkei", "Chiyome", "Ginchiyo", "Goemon", "Hanzõ", "Hideyoshi", "Ieyasu" , "Kojirõ" , "Musashi" , "Nobunaga" , "Tomoe" , "Ushiwaka" };
+	Cardchar Benkei("Benkei", 5);
+	charCards.push_back(Benkei);
+
+	Cardchar Chiyome("Chiyome", 4);
+	charCards.push_back(Chiyome);
+
+	Cardchar Ginchiyo("Ginchiyo", 4);
+	charCards.push_back(Ginchiyo);
+
+	Cardchar Goemon("Goemon", 5);
+	charCards.push_back(Goemon);
+
+	Cardchar Hanzõ("Hanzõ", 4);
+	charCards.push_back(Hanzõ);
+
+	Cardchar Hideyoshi("Hideyoshi", 4);
+	charCards.push_back(Hideyoshi);
+
+	Cardchar Ieyasu("Ieyasu", 5);
+	charCards.push_back(Ieyasu);
+
+	Cardchar Kojirõ("Kojirõ", 5);
+	charCards.push_back(Kojirõ);
+
+	Cardchar Musashi("Musashi", 5);
+	charCards.push_back(Musashi);
+
+	Cardchar Nobunaga("Nobunaga", 5);
+	charCards.push_back(Nobunaga);
+
+	Cardchar Tomoe("Tomoe", 5);
+	charCards.push_back(Tomoe);
+
+	Cardchar Ushiwaka("Ushiwaka", 4);
+	charCards.push_back(Ushiwaka);
+
 }
