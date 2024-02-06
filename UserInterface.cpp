@@ -1,7 +1,11 @@
 #include "UserInterface.h"
 #include "Joueur.h"
 #include <iostream>
+#ifdef _WIN32
+#include <windows.h>
+#else
 #include <unistd.h>
+#endif
 #include <conio.h>
 using namespace std;
 
