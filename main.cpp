@@ -1,91 +1,26 @@
 #include <iostream>
-#include <conio.h>
 #include "Joueur.h"
-#include <unistd.h>
+#include "UserInterface.h"
 
 using namespace std;
-
+int nombreJoueurs;
 
 int main() {
-    int nombreJoueurs;
-    cout << R"(
+    cartes();
+    srand(static_cast<unsigned>(time(nullptr)));
 
-                            /|
-                          /'||
-                         |  ||
-                         |  ||
-                         |  ||
-                         |  ||
-                         |  ||
-                         |  ||
-                         |  ||
-                         |  ||
-                         |  ||
-                         |  ||
-                         |  ||
-                         |  ||
-                         |  ||
-                         |  ||
-                         |  ||         __.--._
-                         |  ||      /~~   __.-~\ _
-                         |  ||  _.-~ / _---._ ~-\/~\
-                         |  || // /  /~/  .-  \  /~-\
-                         |  ||((( /(/_(.-(-~~~~~-)_/ |
-                         |  || ) (( |_.----~~~~~-._\ /
-                         |  ||    ) |              \_|
-                         |  ||     (| =-_   _.-=-  |~)        ,
-                         |  ||      | `~~ |   ~~'  |/~-._-'/'/_,
-                         |  ||       \    |        /~-.__---~ , ,
-                         |  ||       |   ~-''     || `\_~~~----~
-                         |  ||_.ssSS$$\ -====-   / )\_  ~~--~
-                 ___.----|~~~|%$$$$$$/ \_    _.-~ /' )$s._
-        __---~-~~        |   |%%$$$$/ /  ~~~~   /'  /$$$$$$$s__
-      /~       ~\    ============$$/ /        /'  /$$$$$$$$$$$SS-.
-    /'      ./\\\\\\_( ~---._(_))$/ /       /'  /$$$$%$$$$$~      \
-    (      //////////(~-(..___)/$/ /      /'  /$$%$$%$$$$'         \
-     \    |||||||||||(~-(..___)$/ /  /  /'  /$$$%$$$%$$$            |
-      `-__ \\\\\\\\\\\(-.(_____) /  / /'  /$$$$%$$$$$%$             |
-          ~~""""""""""-\.(____) /   /'  /$$$$$%%$$$$$$\_            /
-                        $|===|||  /'  /$$$$$$$%%%$$$$$( ~         ,'|
-                    __  $|===|%\/'  /$$$$$$$$$$$%%%%$$|        ,''  |
-                   ///\ $|===|/'  /$$$$$$%$$$$$$$%%%%$(            /'
-                    \///\|===|  /$$$$$$$$$%%$$$$$$%%%%$\_-._       |
-                     `\//|===| /$$$$$$$$$$$%%%$$$$$$-~~~    ~      /
-                       `\|-~~(~~-`$$$$$$$$$%%%///////._       ._  |
-                       (__--~(     ~\\\\\\\\\\\\\\\\\\\\        \ \
-                       (__--~~(       \\\\\\\\\\\\\\\\\\|        \/
-                        (__--~(       ||||||||||||||||||/       _/
-                         (__.--._____//////////////////__..---~~
-                         |   """"'''''           ___,,,,ss$$$%
-                        ,%\__      __,,,\sssSS$$$$$$$$$$$$$$%%
-                      ,%%%%$$$$$$$$$$\;;;;\$$$$$$$$$$$$$$$$%%%$.
-                     ,%%%%%%$$$$$$$$$$%\;;;;\$$$$$$$$$$$$%%%$$$$
-                   ,%%%%%%%%$$$$$$$$$%$$$\;;;;\$$$$$$$$$%%$$$$$$,
-                  ,%%%%%%%%%$$$$$$$$%$$$$$$\;;;;\$$$$$$%%$$$$$$$$
-                 ,%%%%%%%%%%%$$$$$$%$$$$$$$$$\;;;;\$$$%$$$$$$$$$$$
-                 %%%%%%%%%%%%$$$$$$$$$$$$$$$$$$\;;;$$$$$$$$$$$$$$$
-                   ""==%%%%%%%$$$$$TuaXiong$$$$$$$$$$$$$$$$$$$SV"
-                               $$$$$$$$$$$$$$$$$$$$====""""
-                                 """""""""~~~~
+    UserInterface affichageASCII;
+    affichageASCII.affichageASCII();
 
+    UserInterface messageBienvenue;
+    messageBienvenue.messageBienvenu();
 
-)" << endl;
+    Joueur test;
+    test.mainjoueurs(nombreJoueurs);
 
-    cout << "Bienvenu dans le jeu KATANA" << endl;
-    cout << "Choisissez un nombre de joueurs de 3 a 7 ! : " ; cin >> nombreJoueurs; cout << endl;
+    UserInterface affichageRoles;
+    affichageRoles.affichageRoles();
 
-    while (nombreJoueurs < 3 || nombreJoueurs > 7){
-            cout << "Choisissez un nombre de joueurs de 3 a 7 ! : " ; cin >> nombreJoueurs; cout << endl;
-            cout << "C'est l'heure de l'attribution des roles, ne regardez que votre role ! ";
-    }
-
-for (int i = 1; i <= nombreJoueurs; i++){
-    getch();
-    system("cls");
-    cout << "Joueur"<< i << " obtient le role " << i << endl;
-    sleep(3);
-    Joueur* joueur = new Joueur();
-
-}
+    return 0;
 
 }
