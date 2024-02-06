@@ -100,7 +100,7 @@ void cartes() {
 		};
 	};
 
-	roles.roles = { "Role1", "Role2", "Role3" };
+	roles.roles = { "shogun", "samouraï", "ninjas" , "ninjas" , "ronin" , "ninjas" , "samouraïs" };
 
-	characters.characters = { "Character1", "Character2", "Character3" };
+	characters.characters = { "Benkei", "Chiyome", "Ginchiyo", "Goemon", "Hanzõ", "Hideyoshi", "Ieyasu" , "Kojirõ" , "Musashi" , "Nobunaga" , "Tomoe" , "Ushiwaka" };
 }

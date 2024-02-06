@@ -6,7 +6,7 @@
 
 std::vector<Joueur> Main;
 
-Joueur::Joueur() : shuffledCharacters(characters.characters), shuffledRoles(roles.roles) {}
+Joueur::Joueur() : shuffledCharacters(characters.characters) {}
 
 void Joueur::mainjoueurs(int numPlayers) {
 
@@ -35,12 +35,11 @@ void Joueur::mainjoueurs(int numPlayers) {
 };
 
 void Joueur::initializeRoles(int numPlayers) {
-    // Clear the vector before populating
     shuffledRoles.clear();
 
     // Duplicate roles based on the number of players
     for (int i = 0; i < numPlayers; ++i) {
-        shuffledRoles.insert(shuffledRoles.end(), roles.roles.begin(), roles.roles.end());
+        shuffledRoles.push_back(roles.roles[i]);
     }
 
     // Shuffle roles only once

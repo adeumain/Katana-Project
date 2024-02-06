@@ -37,7 +37,6 @@ class Joueur
 		int Honeurpoints(std::string role, int numPlayers);
 };
 
-
 extern std::vector<Joueur> Main;
 
 #endif
