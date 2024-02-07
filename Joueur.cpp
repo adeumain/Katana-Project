@@ -112,12 +112,29 @@ void Joueur::distribcartes() {
         std::rotate(Main.begin(), shogun, Main.end());
     }
 
+    // Shuffle deck
+    std::random_device rd;
+    std::mt19937 g(rd());
+
+    std::shuffle(totCards.begin(), totCards.end(), g);
+
     // Number of cards to distribute to each player
     std::vector<int> cardsPerPlayer = { 4, 5, 5, 6, 6, 7, 7 };
+    int f = -1;
 
     // Distribute cards to each player's hand
-    for (Joueur &joueur : Main) {
-        
+    for (Joueur& joueur : Main) {
+        f++;
+        for (int j = 0; j < cardsPerPlayer[f]; j++) {
+            joueur.main.push_back(totCards[0]);
+            totCards.erase(totCards.begin());
+        }
     }
-
+    for (size_t i = 0; i < Main.size(); ++i) {
+        std::cout << "Player " << i + 1 << " hand: ";
+        for (Cardtot& card : Main[i].main) {
+            std::cout << card.name << " ";
+        }
+        std::cout << std::endl;
+    }
 }
