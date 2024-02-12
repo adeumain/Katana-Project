@@ -27,9 +27,9 @@ void UserInterface::affichageRoles() {
         cout << "Le role s'affiche dans 3 secondes !";
         Sleep(3000);
         system("cls");
-        cout << "Nom Joueur: " << main.name << endl;
-        cout << "Role: " << main.role << endl;
-        cout << "Personnage: " << main.character << endl;
+        cout << "Nom Joueur: " << main.getName() << endl;
+        cout << "Role: " << main.getRole() << endl;
+        cout << "Personnage: " << main.getCharacter() << endl;
         cout << "Appuyez sur une touche une fois que vous avez vu votre role !";
         _getch();
         Sleep(3000);
@@ -89,6 +89,5 @@ void UserInterface::affichageASCII() {
 
 )" << endl;
 
-}
+};
 
-}

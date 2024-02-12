@@ -6,17 +6,15 @@
 #include <iterator>
 #include <random>
 
-std::vector<Joueur> Main;
+std::vector<Joueur> ListeJoueur;
 
 Joueur::Joueur() : shuffledCharacters() {
     for (const auto& card : charCards) {
-        shuffledCharacters.push_back(card.name);
+        shuffledCharacters.push_back(card.getName());
     }
 }
 
 void Joueur::mainjoueurs(int nombreJoueurs) {
-
-    std::vector<Joueur> players;
 
     initializeRoles(nombreJoueurs);
     // Input player names
@@ -32,10 +30,8 @@ void Joueur::mainjoueurs(int nombreJoueurs) {
         std::tie(character, hp) = Rndcharacter();
 
         // Create a player and add to the vector
-        players.push_back(Joueur(playerName, role, character, hp, Honeurpoints(role, nombreJoueurs), {}));
+        ListeJoueur.push_back(Joueur(playerName, role, character, hp, false, Honeurpoints(role, nombreJoueurs), {}, {}));
     }
-
-    Main.insert(Main.end(), players.begin(), players.end());
 };
 
 void Joueur::initializeRoles(int nombreJoueurs) {
@@ -70,8 +66,8 @@ std::tuple<std::string, int> Joueur::Rndcharacter() {
 
     int hp = 0;
     for (const auto& card : charCards) {
-        if (card.name == name) {
-            hp = card.hp;
+        if (card.getName() == name) {
+            hp = card.getHp();
             break;
         }
     }
@@ -103,13 +99,13 @@ int Joueur::Honeurpoints(std::string role, int nombreJoueurs) {
 void Joueur::distribcartes() {
 
     // Find shogun dans le vecteur players
-    auto shogun = std::find_if(Main.begin(), Main.end(), [](const Joueur& joueur) {
+    auto shogun = std::find_if(ListeJoueur.begin(), ListeJoueur.end(), [](const Joueur& joueur) {
         return joueur.role == "shogun";
         });
 
     // Si Shogun est trouver mettre tout les joueurs apres lui en debut de liste
-    if (shogun != Main.end()) {
-        std::rotate(Main.begin(), shogun, Main.end());
+    if (shogun != ListeJoueur.end()) {
+        std::rotate(ListeJoueur.begin(), shogun, ListeJoueur.end());
     }
 
     // Shuffle deck
@@ -123,17 +119,17 @@ void Joueur::distribcartes() {
     int f = -1;
 
     // Distribute cards to each player's hand
-    for (Joueur& joueur : Main) {
+    for (Joueur& joueur : ListeJoueur) {
         f++;
         for (int j = 0; j < cardsPerPlayer[f]; j++) {
             joueur.main.push_back(totCards[0]);
             totCards.erase(totCards.begin());
         }
     }
-    for (size_t i = 0; i < Main.size(); ++i) {
+    for (size_t i = 0; i < ListeJoueur.size(); ++i) {
         std::cout << "Player " << i + 1 << " hand: ";
-        for (Cardtot& card : Main[i].main) {
-            std::cout << card.name << " ";
+        for (Cardtot& card : ListeJoueur[i].main) {
+            std::cout << card.getName() << " ";
         }
         std::cout << std::endl;
     }

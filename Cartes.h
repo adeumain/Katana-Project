@@ -9,27 +9,40 @@ enum CardType { Armes, Permanantes, Action };
 
 class Cardorig
 {
-    public:
+    private:
         CardType type;
         std::string name;
         int attack;
         int portee;
         int NbCartes;
     
+    public:
         Cardorig(CardType cardType, const std::string& nomcarte, int Portee, int Degats, int NbCartes)
             : type(cardType), name(nomcarte), portee(Portee), attack(Degats),  NbCartes(NbCartes) {}
+
+        CardType getType() const { return type; }
+        std::string getName() const { return name; }
+        int getAttack() const { return attack; }
+        int getPortee() const { return portee; }
+        int getNbCartes() const { return NbCartes; }
 };
 
 class Cardtot
 {
-    public:
+    private:
         CardType type;
         std::string name;
         int attack;
         int portee;
     
+    public:
         Cardtot(CardType cardType, const std::string& nomcarte, int Portee, int Degats)
             : type(cardType), name(nomcarte), portee(Portee), attack(Degats) {}
+
+        CardType getType() const { return type; }
+        std::string getName() const { return name; }
+        int getAttack() const { return attack; }
+        int getPortee() const { return portee; }
 };
 
 class Cardrolles
@@ -40,12 +53,16 @@ class Cardrolles
 
 class Cardchar
 {
-    public:
+    private:
         std::string name;
         int hp;
 
+    public:
         Cardchar(const std::string& nomcarte, int vie)
             : name(nomcarte), hp(vie) {}
+
+        std::string getName() const { return name; }
+        int getHp() const { return hp; }
 };
 
 extern std::vector<Cardtot> totCards;

@@ -94,8 +94,8 @@ void cartes() {
 
 
 	for (const Cardorig& cardorig : allCards) {
-		for (int i = cardorig.NbCartes; i > 0; --i) {
-			Cardtot card(cardorig.type, cardorig.name, cardorig.portee, cardorig.attack);
+		for (int i = cardorig.getNbCartes(); i > 0; --i) {
+			Cardtot card(cardorig.getType(), cardorig.getName(), cardorig.getPortee(), cardorig.getAttack());
 			totCards.push_back(card);
 		};
 	};

@@ -9,22 +9,34 @@
 
 class Joueur
 {
-	public:
+	private:
 		std::string name;
 		std::string role;
 		std::string character;
 		int vie;
+		bool incapacite;
 		int honeur;
 		std::vector<Cardtot> main;
 		std::vector<std::string> shuffledCharacters;
 		std::vector<std::string> shuffledRoles;
+		std::vector<Cardtot> carteperm;
 
 	public:
 
 		Joueur();
 
-		Joueur(std::string names, std::string roles, std::string charact, int vies, int honeurs, std::vector<Cardtot> cardes)
-			: name(names), role(roles), character(charact), vie(vies), honeur(honeurs), main(cardes) {}
+		Joueur(std::string names, std::string roles, std::string charact, int vies, bool incapacite, int honeurs, std::vector<Cardtot> cardes, std::vector<Cardtot> cartesperm)
+			: name(names), role(roles), character(charact), vie(vies),incapacite(incapacite), honeur(honeurs), main(cardes), carteperm(cartesperm) {}
+
+		std::string getName() const { return name; }
+		std::string getRole() const { return role; }
+		std::string getCharacter() const { return character; }
+		int getVie() const { return vie; }
+		bool getIncapacite() const { return incapacite; }
+		int getHoneur() const { return honeur; }
+		std::vector<Cardtot> getMain() const { return main; }
+		std::vector<Cardtot> getPerm() const { return carteperm; }
+
 
 		void mainjoueurs(int nombreJoueurs);
 
@@ -39,6 +51,6 @@ class Joueur
 		void distribcartes();
 };
 
-extern std::vector<Joueur> Main;
+extern std::vector<Joueur> ListeJoueur;
 
 #endif

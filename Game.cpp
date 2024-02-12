@@ -47,11 +47,11 @@ void Tour::selectionCarte(int i) {
     int choix = 0;
     int cible = 0;
     std::cout << "Choisissez la carte à jouer: ";
-    std::cout << "Vous avez choisi: " << ListeJoueur[0].main[choix - 1].name << std::endl;
+    std::cout << "Vous avez choisi: " << ListeJoueur[0].getMain()[choix - 1].getName() << std::endl;
     // Entrer la variable choix dans le vector choixCarte
-    ListeJoueur[i].defausse.push_back(ListeJoueur[i].main[choix - 1]);
+    ListeJoueur[i].defausse.push_back(ListeJoueur[i].getMain()[choix - 1]);
     // Supprimer la carte jouée de la main du joueur
-    ListeJoueur[i].main.erase(ListeJoueur[i].main.begin() + choix - 1);
+    ListeJoueur[i].getMain().erase(ListeJoueur[i].getMain().begin() + choix - 1);
     // Saisi le numéro de la cible
     std::cout << "Choisissez la cible: ";
     std::cin >> cible;
