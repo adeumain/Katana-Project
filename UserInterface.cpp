@@ -21,16 +21,19 @@ void UserInterface::messageBienvenu(){
     }}
 
 void UserInterface::affichageRoles() {
-    for (const Joueur& main : Main) {
+    for (const Joueur& main : ListeJoueur) {
+        cout << "Appuyez sur une touche pour consulter votre role !"<< endl;
         _getch();
-        cout << "Le prochain role s'affiche dans 3 secondes !  ";
+        cout << "Le role s'affiche dans 3 secondes !";
         Sleep(3000);
         system("cls");
-        cout << "Nom Joueur: " << main.name << std::endl;
-        cout << "Role: " << main.role << std::endl;
-        cout << "Personnage: " << main.character << std::endl;
-        cout << "Appuyez sur une touche pour afficher le prochain role !";
+        cout << "Nom Joueur: " << main.name << endl;
+        cout << "Role: " << main.role << endl;
+        cout << "Personnage: " << main.character << endl;
+        cout << "Appuyez sur une touche une fois que vous avez vu votre role !";
+        _getch();
         Sleep(3000);
+        system("cls");
     }
 }
 
@@ -39,15 +42,6 @@ void UserInterface::affichageASCII() {
 
                             /|
                           /'||
-                         |  ||
-                         |  ||
-                         |  ||
-                         |  ||
-                         |  ||
-                         |  ||
-                         |  ||
-                         |  ||
-                         |  ||
                          |  ||
                          |  ||
                          |  ||
@@ -87,15 +81,14 @@ void UserInterface::affichageASCII() {
                         ,%\__      __,,,\sssSS$$$$$$$$$$$$$$%%
                       ,%%%%$$$$$$$$$$\;;;;\$$$$$$$$$$$$$$$$%%%$.
                      ,%%%%%%$$$$$$$$$$%\;;;;\$$$$$$$$$$$$%%%$$$$
-                   ,%%%%%%%%$$$$$$$$$%$$$\;;;;\$$$$$$$$$%%$$$$$$,
-                  ,%%%%%%%%%$$$$$$$$%$$$$$$\;;;;\$$$$$$%%$$$$$$$$
-                 ,%%%%%%%%%%%$$$$$$%$$$$$$$$$\;;;;\$$$%$$$$$$$$$$$
-                 %%%%%%%%%%%%$$$$$$$$$$$$$$$$$$\;;;$$$$$$$$$$$$$$$
-                   ""==%%%%%%%$$$$$TuaXiong$$$$$$$$$$$$$$$$$$$SV"
+                    %%%%%%%%%%%%$$$$$$$$$$$$$$$$$$\;;;$$$$$$$$$$
+                   ""==%%%%%%%$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
                                $$$$$$$$$$$$$$$$$$$$====""""
                                  """""""""~~~~
 
 
 )" << endl;
+
+}
 
 }
