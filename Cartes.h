@@ -76,6 +76,8 @@ extern Cardrolles roles;
 
 extern std::vector<Cardchar> charCards;
 
+extern std::vector<Cardtot> defausse;
+
 void cartes();
 
 #endif
