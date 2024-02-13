@@ -4,30 +4,21 @@
 #include <vector>
 #include <string>
 #include "Joueur.h"
-#include "FunctCartes.h"
 
-class Difficulte {
+
+class Game{
 private:
-    std::vector<std::string> table;
-    int joueur;
-    int ennemis;
-    int max;
-    int compteur_1;
-    int compteur_2;
-
-public:
-    Difficulte(const std::vector<std::string>& t, int j, int e);
-    void calculateCounters();
-    void printResult();
-};
-
-class Tour{
-public:
     bool Jeu = true;
+public:
+    bool verifVie();
+    bool verifHonneur();
     void jeu();
     void tour();
     void selectionCarte(int i);
+    void afficherStats(Joueur& joueur);
+    void afficherMain(Joueur& joueur);
 };
+
 
 
 
