@@ -55,6 +55,17 @@ class Joueur
 		int Honeurpoints(std::string role, int nombreJoueurs);
 
 		void distribcartes();
+
+		int trouverIndice(const std::vector<int>& ListeJoueur, const Joueur& joueur) {
+	    		auto it = std::find(ListeJoueur.begin(), ListeJoueur.end(), joueur.getName());
+	    		if (it != ListeJoueur.end()) {
+	        		return std::distance(ListeJoueur.begin(), it);
+	    		}
+	    		else {
+	        		return -1;
+	    		}
+		}
+
 };
 
 extern std::vector<Joueur> ListeJoueur;
