@@ -100,42 +100,42 @@ void cartes() {
 		};
 	};
 
-	roles.roles = { "shogun", "samouraï", "ninjas" , "ninjas" , "ronin" , "ninjas" , "samouraïs" };
+	roles.roles = { "shogun", "samourai", "ninjas" , "ninjas" , "ronin" , "ninjas" , "samourai" };
 
-	Cardchar Benkei("Benkei", 5);
+	Cardchar Benkei(Passif, "Benkei", 5);
 	charCards.push_back(Benkei);
 
-	Cardchar Chiyome("Chiyome", 4);
+	Cardchar Chiyome(Passif, "Chiyome", 4);
 	charCards.push_back(Chiyome);
 
-	Cardchar Ginchiyo("Ginchiyo", 4);
+	Cardchar Ginchiyo(Passif, "Ginchiyo", 4);
 	charCards.push_back(Ginchiyo);
 
-	Cardchar Goemon("Goemon", 5);
+	Cardchar Goemon(Actif, "Goemon", 5);
 	charCards.push_back(Goemon);
 
-	Cardchar Hanzõ("Hanzõ", 4);
-	charCards.push_back(Hanzõ);
+	Cardchar Hanzo(Actif, "Hanzo", 4);
+	charCards.push_back(Hanzo);
 
-	Cardchar Hideyoshi("Hideyoshi", 4);
+	Cardchar Hideyoshi(Passif, "Hideyoshi", 4);
 	charCards.push_back(Hideyoshi);
 
-	Cardchar Ieyasu("Ieyasu", 5);
+	Cardchar Ieyasu(Actif, "Ieyasu", 5);
 	charCards.push_back(Ieyasu);
 
-	Cardchar Kojirõ("Kojirõ", 5);
+	Cardchar Kojirõ(Actif, "Kojiro", 5);
 	charCards.push_back(Kojirõ);
 
-	Cardchar Musashi("Musashi", 5);
+	Cardchar Musashi(Actif, "Musashi", 5);
 	charCards.push_back(Musashi);
 
-	Cardchar Nobunaga("Nobunaga", 5);
+	Cardchar Nobunaga(Actif, "Nobunaga", 5);
 	charCards.push_back(Nobunaga);
 
-	Cardchar Tomoe("Tomoe", 5);
+	Cardchar Tomoe(Passif, "Tomoe", 5);
 	charCards.push_back(Tomoe);
 
-	Cardchar Ushiwaka("Ushiwaka", 4);
+	Cardchar Ushiwaka(Passif, "Ushiwaka", 4);
 	charCards.push_back(Ushiwaka);
 
 }

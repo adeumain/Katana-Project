@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include "Joueur.h"
+#include "FunctCartes.h"
 
 class Difficulte {
 private:

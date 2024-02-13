@@ -28,6 +28,7 @@ class Joueur
 		Joueur(std::string names, std::string roles, std::string charact, int vies, bool incapacite, int honeurs, std::vector<Cardtot> cardes, std::vector<Cardtot> cartesperm)
 			: name(names), role(roles), character(charact), vie(vies),incapacite(incapacite), honeur(honeurs), main(cardes), carteperm(cartesperm) {}
 
+		// (Getter) Prendre les valeurs
 		std::string getName() const { return name; }
 		std::string getRole() const { return role; }
 		std::string getCharacter() const { return character; }
@@ -36,6 +37,11 @@ class Joueur
 		int getHoneur() const { return honeur; }
 		std::vector<Cardtot> getMain() const { return main; }
 		std::vector<Cardtot> getPerm() const { return carteperm; }
+
+		// (Setter) changer des valeurs
+		void setVie(int newVie) { vie = newVie; }
+		void setHoneur(int newHoneur) { honeur = newHoneur; }
+		void setIncapacite(bool newIncapacite) { incapacite = newIncapacite; }
 
 
 		void mainjoueurs(int nombreJoueurs);

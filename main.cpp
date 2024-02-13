@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Joueur.h"
+#include "Game.h"
 #include "UserInterface.h"
 
 using namespace std;

@@ -3,6 +3,7 @@
 #include <vector>
 
 enum CardType { Armes, Permanantes, Action };
+enum ChrType { Actif, Passif };
 
 #ifndef CARTES_H_INCLUDED
 #define CARTES_H_INCLUDED
@@ -54,13 +55,15 @@ class Cardrolles
 class Cardchar
 {
     private:
+        ChrType type;
         std::string name;
         int hp;
 
     public:
-        Cardchar(const std::string& nomcarte, int vie)
-            : name(nomcarte), hp(vie) {}
+        Cardchar(ChrType chartype, const std::string& nomcarte, int vie)
+            : type (chartype), name(nomcarte), hp(vie) {}
 
+        ChrType getType() const { return type; }
         std::string getName() const { return name; }
         int getHp() const { return hp; }
 };
