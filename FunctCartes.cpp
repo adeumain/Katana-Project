@@ -1,4 +1,4 @@
-﻿#include "FunctCartes.h"
+#include "FunctCartes.h"
 #include <map>
 #include <string>
 #include <iostream>
@@ -62,7 +62,8 @@ void cri_de_guerre(string nomJoueur) {
 						for (auto it = joueur.getMain().begin(); it != joueur.getMain().end(); ++it) {
 							if (it->getName() == "parade") {
 								cout << "Carte Parades défausser, passage au prochain joueur" << endl;
-								it = joueur.getMain().erase(it); // defausse
+								defausse.push_back(*it);
+								it = joueur.getMain().erase(it);
 								btmp = false;
 								break;
 							}
@@ -91,7 +92,8 @@ void cri_de_guerre(string nomJoueur) {
 								for (auto it = joueur.getMain().begin(); it != joueur.getMain().end(); ++it) {
 									if (it->getName() == "parade") {
 										cout << "Carte Parades défausser, passage au prochain joueur" << endl;
-										it = joueur.getMain().erase(it); // defausse
+										defausse.push_back(*it);
+										it = joueur.getMain().erase(it);
 										btmp = false;
 										break;
 									}
@@ -130,7 +132,7 @@ void daimyo(string nomJoueur) {
 	int tmp = it - ListeJoueur.begin();
 	for (int j = 0; j < 2; j++) {
 		ListeJoueur[tmp].getMain().push_back(totCards[0]);
-		totCards.erase(totCards.begin()); // defausse
+		totCards.erase(totCards.begin());
 	}
 }
 
@@ -158,7 +160,8 @@ void diversion(string nomJoueur) {
 	cin >> i;
 
 	ListeJoueur[jtmp].getMain().push_back(ListeJoueur[tmp].getMain()[i]);
-	ListeJoueur[tmp].getMain().erase(ListeJoueur[tmp].getMain().begin() + i - 1); // defausse
+	defausse.push_back(ListeJoueur[tmp].getMain()[i]);
+	ListeJoueur[tmp].getMain().erase(ListeJoueur[tmp].getMain().begin() + i - 1);
 }
 
 void geisha(string nomJoueur) {
@@ -185,7 +188,8 @@ void geisha(string nomJoueur) {
 		}
 		cin >> i;
 		cout << "Carte " << ListeJoueur[tmp].getPerm()[i].getName() << "Eliminee" << endl;
-		ListeJoueur[tmp].getPerm().erase(ListeJoueur[tmp].getPerm().begin() + i -1); // defausse
+		defausse.push_back(ListeJoueur[tmp].getPerm()[i]);
+		ListeJoueur[tmp].getPerm().erase(ListeJoueur[tmp].getPerm().begin() + i -1);
 
 	case 2:
 		diversion(nomJoueur);
@@ -218,7 +222,7 @@ void meditation(string nomJoueur) {
 		return;
 	}
 	ListeJoueur[jtmp].getMain().push_back(totCards[0]);
-	totCards.erase(totCards.begin()); // defausse
+	totCards.erase(totCards.begin());
 }
 
 void ceremonie_du_the(string nomJoueur) {
@@ -253,7 +257,8 @@ void jujitsu(string nomJoueur) {
 					for (auto it = joueur.getMain().begin(); it != joueur.getMain().end(); ++it) {
 						if (it->getType() == Armes) {
 							cout << "Carte Armes défausser, passage au prochain joueur" << endl;
-							it = joueur.getMain().erase(it); // defausse
+							defausse.push_back(*it);
+							it = joueur.getMain().erase(it);
 							btmp = false;
 							break;
 						}
@@ -292,7 +297,8 @@ void Hanzo(std::string NomJoueur) {
 	for (auto it = ListeJoueur[jtmp].getMain().begin(); it != ListeJoueur[jtmp].getMain().end(); ++it) {
 		if (it->getType() == Armes) {
 			cout << "Carte Armes défausser, passage au prochain joueur" << endl;
-			it = ListeJoueur[jtmp].getMain().erase(it); // defausse
+			defausse.push_back(*it);
+			it = ListeJoueur[jtmp].getMain().erase(it);
 			btmp = false;
 			break;
 		}
@@ -309,8 +315,8 @@ void Ieyasu(std::string NomJoueur) {
 	auto jit = find(ListeJoueur.begin(), ListeJoueur.end(), NomJoueur);
 	int jtmp = jit - ListeJoueur.begin();
 
-	ListeJoueur[jtmp].getMain().push_back(totCards.defausse[0]); // defausse
-	totCards.erase(totCards.begin()); // defausse
+	ListeJoueur[jtmp].getMain().push_back(defausse[0]);
+	defausse.erase(defausse.begin());
 	cout << ListeJoueur[jtmp].getName() << "A pioche une carte de la defausse" << endl;
 }
 
