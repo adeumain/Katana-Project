@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include "Joueur.h"
+#include "FunctCartes.h"
 
 
 class Game{
@@ -17,6 +18,11 @@ public:
     void selectionCarte(int i);
     void afficherStats(Joueur& joueur);
     void afficherMain(Joueur& joueur);
+    void afficherAttaque(Joueur& joueur, int cible, int degats);
+    void subirDegats(int cible, int degats, int hp);
+    int difficulte(Joueur& joueur, int cible, int porte);
+    int verifParade(int cible, int degats, int hp, int demande);
+    void attaque(Joueur& joueur, int cible, int degats, int hp, int porte);
 };
 
 
