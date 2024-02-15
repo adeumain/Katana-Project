@@ -34,8 +34,7 @@ class Joueur
 		}
 
 		// (Getter) Prendre les valeurs
-		std::string getName() const { return 
-name; }
+		std::string getName() const { return name; }
 		std::string getRole() const { return role; }
 		std::string getCharacter() const { return character; }
 		int getVie() const { return vie; }
