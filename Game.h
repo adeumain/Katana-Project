@@ -7,7 +7,7 @@
 #include "FunctCartes.h"
 
 
-class Game{
+class Game {
 private:
     bool Jeu = true;
 public:

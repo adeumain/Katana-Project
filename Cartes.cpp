@@ -6,6 +6,8 @@ std::vector<Cardorig> allCards;
 std::vector<Cardtot> totCards;
 Cardrolles roles;
 std::vector<Cardchar> charCards;
+std::vector<Cardtot> defausse;
+
 
 void cartes() {
 	// Cartes Format cardType, nomcarte, Portee, Degats, NbCartes

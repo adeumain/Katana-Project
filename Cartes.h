@@ -63,6 +63,10 @@ class Cardchar
         Cardchar(ChrType chartype, const std::string& nomcarte, int vie)
             : type (chartype), name(nomcarte), hp(vie) {}
 
+        bool operator==(const Cardchar& other) const {
+            return (type == other.type && name == other.name && hp == other.hp);
+        }
+
         ChrType getType() const { return type; }
         std::string getName() const { return name; }
         int getHp() const { return hp; }

@@ -4,6 +4,7 @@
 #include "Cartes.h"
 
 
+
 #ifndef JOUEUR_H_INCLUDED
 #define JOUEUR_H_INCLUDED
 
@@ -28,8 +29,13 @@ class Joueur
 		Joueur(std::string names, std::string roles, std::string charact, int vies, bool incapacite, int honeurs, std::vector<Cardtot> cardes, std::vector<Cardtot> cartesperm)
 			: name(names), role(roles), character(charact), vie(vies),incapacite(incapacite), honeur(honeurs), main(cardes), carteperm(cartesperm) {}
 
+		bool operator==(const std::string& playerName) const {
+			return name == playerName;
+		}
+
 		// (Getter) Prendre les valeurs
-		std::string getName() const { return name; }
+		std::string getName() const { return 
+name; }
 		std::string getRole() const { return role; }
 		std::string getCharacter() const { return character; }
 		int getVie() const { return vie; }
@@ -56,16 +62,14 @@ class Joueur
 
 		void distribcartes();
 
-		int trouverIndice(const std::vector<int>& ListeJoueur, const Joueur& joueur) {
-	    		auto it = std::find(ListeJoueur.begin(), ListeJoueur.end(), joueur.getName());
-	    		if (it != ListeJoueur.end()) {
-	        		return std::distance(ListeJoueur.begin(), it);
-	    		}
-	    		else {
-	        		return -1;
-	    		}
+		int trouverIndice(const std::vector<Joueur>& ListeJoueur, std::string nomJoueur) {
+			for (size_t i = 0; i < ListeJoueur.size(); ++i) {
+				if (ListeJoueur[i].getName() == nomJoueur) {
+					return static_cast<int>(i);
+				}
+			}
+			return -1; // If not found
 		}
-
 };
 
 extern std::vector<Joueur> ListeJoueur;

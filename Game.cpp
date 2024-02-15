@@ -6,7 +6,7 @@
 #include <cmath>
 
 
-bool Game::verifVie(){
+bool Game::verifVie() {
     for (Joueur& joueur : ListeJoueur) {
         if (joueur.getVie() <= 0) {
             return false;
@@ -15,7 +15,7 @@ bool Game::verifVie(){
     return true;
 }
 
-bool Game::verifHonneur(){
+bool Game::verifHonneur() {
     for (Joueur& joueur : ListeJoueur) {
         if (joueur.getHoneur() <= 0) {
             return false;
@@ -44,7 +44,7 @@ void Game::selectionCarte(int i) {
     std::cout << "Choisissez la cible: ";
     std::cin >> cible;
     // Si la cible est un joueur
-    }
+}
 
 void Game::tour() {
     int i = 0;;
@@ -53,18 +53,18 @@ void Game::tour() {
         afficherMain(joueur);
         std::cout << "Choisissez une carte à jouer: ";
         std::cin >> i;
-        selectionCarte(i-1);
+        selectionCarte(i - 1);
     }
 }
 
 void Game::afficherStats(Joueur& joueur) {
-        std::cout << "Nom: " << joueur.getName() << std::endl;
-        std::cout << "Role: " << joueur.getRole() << std::endl;
-        std::cout << "Personnage: " << joueur.getCharacter() << std::endl;
-        std::cout << "Vie: " << joueur.getVie() << std::endl;
-        std::cout << "Honneur: " << joueur.getHoneur() << std::endl;
-        std::cout << "Main: " << std::endl;
-    }
+    std::cout << "Nom: " << joueur.getName() << std::endl;
+    std::cout << "Role: " << joueur.getRole() << std::endl;
+    std::cout << "Personnage: " << joueur.getCharacter() << std::endl;
+    std::cout << "Vie: " << joueur.getVie() << std::endl;
+    std::cout << "Honneur: " << joueur.getHoneur() << std::endl;
+    std::cout << "Main: " << std::endl;
+}
 
 void Game::afficherMain(Joueur& joueur) {
     for (int j = 0; j < joueur.getMain().size(); j++) {
@@ -79,10 +79,9 @@ void Game::afficherAttaque(Joueur& joueur, int cible, int degats) {
 }
 
 int Game::difficulte(Joueur& joueur, int cible, int porte) {
-    int indice_joueur = joueur.trouverIndice(ListeJoueur, joueur);
+    int indice_joueur = joueur.trouverIndice(ListeJoueur, joueur.getName());
     int max = ListeJoueur.size();
     int difficulte = std::abs(indice_joueur - cible);
-
     if (difficulte > max) {
         difficulte = difficulte - max;
         return difficulte;
@@ -100,14 +99,14 @@ void Game::subirDegats(int cible, int degats, int hp) {
 
 int Game::verifParade(int cible, int degats, int hp, int demande) {
     if (demande == true) {
-        if("condition pour verifier qu'il a bien une carte parade"){
-        // code
+        if ("condition pour verifier qu'il a bien une carte parade") {
+            // code
             return 0;
         }
         else {
             subirDegats(cible, degats, hp);
             return 1;
-        }  
+        }
     }
     else
     {
@@ -126,6 +125,6 @@ void Game::attaque(Joueur& joueur, int cible, int degats, int hp, int porte) {
         subirDegats(cible, degats, hp);
     }
     else {
-        verifParade( cible, degats, hp, demande);
+        verifParade(cible, degats, hp, demande);
     }
 }
